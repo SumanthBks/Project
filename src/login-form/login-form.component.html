@@ -1,0 +1,22 @@
+<div>
+    <h1>Login</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+        <div class="form-group">
+            <label>Username</label>
+            <input id="username" type="username" placeholder="Enter Username" required="true"
+                formControlName="username" />
+            <div *ngIf="fieldValidation('username')">
+                <small class="error">Please enter the username with min of 6 and max of 12</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input id="password" type="password" placeholder="Enter Password" required="true"
+                formControlName="password" />
+            <div *ngIf="fieldValidation('password')">
+                <small class="error">Please enter password with min of 6 and max of 12</small>
+            </div>
+        </div>
+        <button type="submit" [disabled]="submitDisabled()">Submit</button>
+    </form>
+</div>
